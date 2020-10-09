@@ -47,12 +47,26 @@ public class MainController {
 		case "persons":
 			listPersons = personDAO.findAllPersons();
 			break;
+		case "nomlike":
+			listPersons = personDAO.findByFullNameLike(value);
+			break;
+		case "s":
+			listPersons = personDAO.findNameStartingByS();
+			break;
 		default:
 			throw new RuntimeException("C'est CASSé");
 		}
 		return listPersons;
 		
 	}
+	
+	@RequestMapping(value = "/lejcestles", method = RequestMethod.GET)
+	List<Person> lejcestles(){
 		
+		return personDAO.findNameStartingByS();
+		
+	}
+	
+	
 	
 }

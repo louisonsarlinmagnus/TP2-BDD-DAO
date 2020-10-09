@@ -59,5 +59,6 @@ public class Person {
 	public void setSalary(Float salary) {
 		this.salary = salary;
 	}
- 
+	
+	
 }

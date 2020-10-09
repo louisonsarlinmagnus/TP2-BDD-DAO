@@ -22,4 +22,8 @@ public interface PersonDAO extends CrudRepository<Person, Long> {
     public List<Person> findBySalaryGreaterThan(Float f);
  
     public List<Person> findByIdGreaterThan(Long id);
+    
+    @Query("SELECT p FROM Person p WHERE p.fullName LIKE 'S%'")
+    public List<Person> findNameStartingByS ();
+        
 }
