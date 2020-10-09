@@ -1,7 +1,5 @@
 package com.example.demo.controllers;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dao.PersonDAO;
 import com.example.demo.entities.Person;
 
-
-
-
 @RestController
-public class MainController {
+public class PersonController {
 	
 	@Autowired
 	PersonDAO personDAO;

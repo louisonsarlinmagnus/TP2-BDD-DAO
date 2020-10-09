@@ -14,6 +14,7 @@ import com.example.demo.entities.Person;
 public interface PersonDAO extends CrudRepository<Person, Long> {
 	@Query("SELECT p FROM Person p")
     public List<Person> findAllPersons();
+	
 	@Query("SELECT p FROM Person p where p.id = :id")
     public Optional<Person> findIdInPerson(@Param("id") Long id);
     

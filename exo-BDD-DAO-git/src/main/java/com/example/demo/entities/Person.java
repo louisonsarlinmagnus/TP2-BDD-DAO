@@ -25,6 +25,7 @@ public class Person {
     @Temporal(TemporalType.DATE)
     @Column(name = "Date_Of_Birth", nullable = false)
     private Date dateOfBirth;
+    
     @Column(name = "Salary", nullable = false)
     private Float salary;
  
