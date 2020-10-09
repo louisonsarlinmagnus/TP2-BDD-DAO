@@ -3,6 +3,8 @@ package com.example.demo.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -43,8 +45,10 @@ public class Customer {
 	@Column(name = "PHONE_NO", length=17, nullable = false)
 	private String phoneNo;
 	
-	@Column(name = "AGENT_CODE", length=6, nullable = false)
-	private String agentCode;
+	
+	@ManyToOne
+    @JoinColumn(name="AGENT_CODE", unique=false, nullable=false, updatable=true)
+	private Agent agentCode;
 
 	public String getCustCode() {
 		return custCode;
@@ -134,11 +138,11 @@ public class Customer {
 		this.phoneNo = phoneNo;
 	}
 
-	public String getAgentCode() {
+	public Agent getAgentCode() {
 		return agentCode;
 	}
 
-	public void setAgentCode(String agentCode) {
+	public void setAgentCode(Agent agentCode) {
 		this.agentCode = agentCode;
 	}
 	

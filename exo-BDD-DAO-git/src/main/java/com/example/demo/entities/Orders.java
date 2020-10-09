@@ -6,9 +6,13 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "ORDERS")
@@ -28,11 +32,14 @@ public class Orders {
 	@Column(name = "ORD_DATE", nullable = false)
 	private Date ordDate;
 	
-	@Column(name = "CUST_CODE", nullable = false)
-	private String custCode;
+	@ManyToOne
+    @JoinColumn(name="CUST_CODE", unique=false, nullable=false, updatable=true)
+	private Customer custCode;
 	
-	@Column(name = "AGENT_CODE", nullable = false)
-	private String agentCode;
+	@ManyToOne
+	@JsonIgnore
+    @JoinColumn(name="AGENT_CODE", unique=false, nullable=false, updatable=true)
+	private Agent agentCode;
 	
 	@Column(name = "ORD_DESCRIPTION", nullable = false)
 	private String ordDescription;
@@ -69,19 +76,19 @@ public class Orders {
 		this.ordDate = ordDate;
 	}
 
-	public String getCustCode() {
+	public Customer getCustCode() {
 		return custCode;
 	}
 
-	public void setCustCode(String custCode) {
+	public void setCustCode(Customer custCode) {
 		this.custCode = custCode;
 	}
 
-	public String getAgentCode() {
+	public Agent getAgentCode() {
 		return agentCode;
 	}
 
-	public void setAgentCode(String agentCode) {
+	public void setAgentCode(Agent agentCode) {
 		this.agentCode = agentCode;
 	}
 
